@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Helpdesk Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <i class="bi bi-headset"></i>
+        Helpdesk Assistant
+      </div>
+    </header>
+    <div class="main-content">
+      <div class="card">
+        <h2 class="card-title"><i class="bi bi-pencil-square"></i> Ticket Input</h2>
+        <div class="form-group">
+          <label for="ticketDescription">Ticket Description</label>
+          <textarea id="ticketDescription" placeholder="Enter ticket description here..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Project Selection</label>
+          <div class="project-selection">
+            <div class="project-dropdown">
+              <select id="projectSelection">
+                <option value="Project Wells">Project Wells</option>
+                <option value="Project Serene">Project Serene</option>
+                <option value="Project Mira">Project Mira</option>
+                <option value="add-new">+ Add New Project</option>
+              </select>
+            </div>
+            <div class="new-project-input" id="newProjectContainer" style="display: none;">
+              <input type="text" id="newProjectName" placeholder="New project name">
+              <button class="btn btn-secondary" id="addProjectBtn">Add</button>
+            </div>
+          </div>
+        </div>
+        <button id="generateBtn" class="btn btn-block"><i class="bi bi-magic"></i> Generate Response</button>
+      </div>
+      <div class="card">
+        <h2 class="card-title"><i class="bi bi-robot"></i> AI Draft Response</h2>
+        <div id="loadingAnimation" class="loading-animation hidden"><div class="loading"></div></div>
+        <textarea id="aiResponse" placeholder="AI response will appear here..." readonly></textarea>
+      </div>
+      <div class="card full-width">
+        <h2 class="card-title"><i class="bi bi-pencil"></i> Response Editor</h2>
+        <div class="form-group"><textarea id="userEditedResponse" placeholder="Edit the AI response here..."></textarea></div>
+        <button id="submitBtn" class="btn btn-success btn-block"><i class="bi bi-send"></i> Submit Response</button>
+      </div>
+    </div>
+  </div>
+  <div class="notification" id="notification"><i class="bi bi-check-circle"></i><span id="notificationMessage">Response submitted successfully!</span></div>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
